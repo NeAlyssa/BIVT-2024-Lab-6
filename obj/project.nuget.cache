@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "D5jI55Ll1F8=",
+  "success": true,
+  "projectFilePath": "/Users/avolon/Documents/Lab_6/BIVT-2024-Lab-6/BIVT-2024-Lab-6.csproj",
+  "expectedPackageFiles": [
+    "/Users/avolon/.nuget/packages/microsoft.dotnet.ilcompiler/8.0.13/microsoft.dotnet.ilcompiler.8.0.13.nupkg.sha512",
+    "/Users/avolon/.nuget/packages/microsoft.net.illink.tasks/8.0.13/microsoft.net.illink.tasks.8.0.13.nupkg.sha512",
+    "/Users/avolon/.nuget/packages/runtime.osx-arm64.microsoft.dotnet.ilcompiler/8.0.13/runtime.osx-arm64.microsoft.dotnet.ilcompiler.8.0.13.nupkg.sha512"
+  ],
+  "logs": []
+}
