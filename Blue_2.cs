@@ -27,9 +27,9 @@ namespace Lab_6
                 {
                     if (_marks == null) return null;
                     int[,] New = new int[2, 5];
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < New.GetLength(0); i++)
                     {
-                        for (int j = 0; j < 5; j++)
+                        for (int j = 0; j < New.GetLength(1); j++)
                         {
                             New[i, j] = _marks[i, j];
                         }
@@ -38,16 +38,15 @@ namespace Lab_6
                 }
             }
 
-            public int Counter => _counter;
             public int TotalScore
             {
                 get
                 {
                     if (_marks == null) return 0;
                     int score = 0;
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < _marks.GetLength(0); i++)
                     {
-                        for (int j = 0; j < 5; j++)
+                        for (int j = 0; j < _marks.GetLength(1); j++)
                         {
                             score += _marks[i, j];
                         }
@@ -68,17 +67,12 @@ namespace Lab_6
             //метод
             public void Jump(int[] result)
             {
-                if (result.Length != 5 || _marks == null) return;
-                if (_counter < 2)
+                if (result == null || _marks == null) return;
+                for (int j = 0; j < 5; j++)
                 {
-                    for (int j = 0; j < 5; j++)
-                    {
-
-                        _marks[_counter, j] = result[j];
-
-                    }
-                    _counter++;
+                    _marks[_counter, j] = result[j];
                 }
+                _counter++;
             }
 
             public static void Sort(Participant[] array)
