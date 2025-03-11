@@ -1,0 +1,86 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace Lab_6
+{
+    public class Green_3
+    {
+        public struct Student
+        {
+            private string name;
+            private string surname;
+            private int[] marks;
+            private bool isExpelled;
+    
+            public string Name => name;
+            public string Surname => surname;
+            public int[] Marks => marks;
+            public double AvgMark => (marks[0] + marks[1] + marks[2]) / 3.0;
+            public bool IsExpelled => isExpelled;
+    
+            public Student(string name, string surname)
+            {
+                this.name = name;
+                this.surname = surname;
+                this.marks = new int[3] { 0, 0, 0 };
+                this.isExpelled = false;
+            }
+    
+            public void Exam(int mark)
+            {
+                if (marks == null || marks.Length == 0)
+                {
+                    return;
+                }
+    
+                for (int i = 0; i < marks.Length; i++)
+                {
+                    if (marks[i] == 0) // Записываем оценку только в первую пустую ячейку
+                    {
+                        if (mark >= 2 && mark <= 5)
+                        {
+                            marks[i] = mark;
+                        }
+                        break; // Прерываем цикл после записи оценки
+                    }
+                }
+    
+                // Проверка на отчисление
+                if (marks.Count(m => m == 2) >= 2)
+                {
+                    isExpelled = true;
+                }
+            }
+    
+            public static void SortByAvgMark(Student[] array)
+            {
+                if (array == null || array.Length == 0)
+                {
+                    return;
+                }
+    
+                for (int i = 0; i < array.Length - 1; i++)
+                {
+                    for (int j = i + 1; j < array.Length; j++)
+                    {
+                        if (array[i].AvgMark < array[j].AvgMark)
+                        {
+                            Student temp = array[i];
+                            array[i] = array[j];
+                            array[j] = temp;
+                        }
+                    }
+                }
+            }
+    
+            public void Print()
+            {
+                Console.WriteLine($"{Name} {Surname} | Средний балл: {AvgMark:F2} | Отчислен: {(IsExpelled ? "Да" : "Нет")}");
+            }
+        }
+    }
+}
